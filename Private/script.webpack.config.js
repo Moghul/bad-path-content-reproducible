@@ -16,6 +16,17 @@ module.exports = {
         libraryTarget: 'var',
         library: 'script'
     },
+    module: {
+        rules: [
+            {
+                test: require.resolve('jquery'),
+                use: [{
+                    loader: vendorDirectory + '/expose-loader',
+                    options: 'jQuery'
+                }]
+            }
+        ]
+    },
     mode: 'development',
     watchOptions: {
         aggregateTimeout: 1000
